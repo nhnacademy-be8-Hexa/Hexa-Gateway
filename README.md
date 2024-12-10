@@ -1,1 +1,3 @@
-# hello-spring
+# hexa-gateway
+
+server.port = 8080
