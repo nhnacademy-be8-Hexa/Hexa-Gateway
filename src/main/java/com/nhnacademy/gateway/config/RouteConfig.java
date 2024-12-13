@@ -10,7 +10,12 @@ public class RouteConfig {
     @Bean
     public RouteLocator msRoute(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("ms1", r -> r.path("/api/**").uri("lb://HEXA-SHOPPINGMALL-SERVICE"))
+                .route("ms1", r -> r.path("/api/auth/login")
+                        .uri("lb://HEXA-JWT-AUTH-SERVICE")
+                )
+                .route("ms2", r -> r.path("/api/**")
+                        .uri("lb://HEXA-SHOPPINGMALL-SERVICE")
+                )
                 .build();
     }
 }
