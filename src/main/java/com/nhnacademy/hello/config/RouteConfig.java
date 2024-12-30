@@ -16,7 +16,7 @@ public class RouteConfig {
                 .route("ms2", r -> r.path("/api/**")
                         .uri("lb://HEXA-SHOPPINGMALL-SERVICE")
                 )
-                .route("ms2", r -> r.path("/api/**")
+                .route("ms3", r -> r.path("/api/**")
                         .uri("lb://HEXA-COUPON-SERVICE")
                 )
                 .build();
