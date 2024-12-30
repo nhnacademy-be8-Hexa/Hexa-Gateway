@@ -13,11 +13,12 @@ public class RouteConfig {
                 .route("ms1", r -> r.path("/api/auth/login")
                         .uri("lb://HEXA-JWT-AUTH-SERVICE")
                 )
-                .route("ms2", r -> r.path("/api/**")
-                        .uri("lb://HEXA-SHOPPINGMALL-SERVICE")
+                .route("ms2", r -> r
+                        .path("/api/coupons", "/api/policies")
+                        .uri("lb://HEXA-COUPON-SERVICE")
                 )
                 .route("ms3", r -> r.path("/api/**")
-                        .uri("lb://HEXA-COUPON-SERVICE")
+                        .uri("lb://HEXA-SHOPPINGMALL-SERVICE")
                 )
                 .build();
     }
