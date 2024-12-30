@@ -14,7 +14,7 @@ public class RouteConfig {
                         .uri("lb://HEXA-JWT-AUTH-SERVICE")
                 )
                 .route("ms2", r -> r
-                        .path("/api/coupons", "/api/policies")
+                        .path("/api/coupons/**", "/api/policies/**")
                         .uri("lb://HEXA-COUPON-SERVICE")
                 )
                 .route("ms3", r -> r.path("/api/**")
