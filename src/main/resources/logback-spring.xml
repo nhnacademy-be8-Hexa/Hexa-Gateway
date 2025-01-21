@@ -24,31 +24,31 @@
 
 
     <!-- LogNCrashHttpAppender 선언 -->
-    <appender name="SYNC_NHN_LOG_CRASH_APPENDER" class="com.nhnacademy.hello.log.LogCrashAppender">
-        <url>https://api-logncrash.cloud.toast.com/v2/log</url>
-        <!-- ERROR 이상만 전송 -->
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
+<!--    <appender name="SYNC_NHN_LOG_CRASH_APPENDER" class="com.nhnacademy.hello.log.LogCrashAppender">-->
+<!--        <url>https://api-logncrash.cloud.toast.com/v2/log</url>-->
+<!--        &lt;!&ndash; ERROR 이상만 전송 &ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--            <level>ERROR</level>-->
+<!--            <onMatch>ACCEPT</onMatch>-->
+<!--            <onMismatch>DENY</onMismatch>-->
+<!--        </filter>-->
+<!--    </appender>-->
     <!-- LogNCrashHttpAppender를 포함한 AsyncAppender 선언 -->
-    <appender name="LNCS-APPENDER" class="ch.qos.logback.classic.AsyncAppender">
-        <!-- Logback의 AsyncAppender 옵션 -->
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
-        <includeCallerData value="false"/>
-        <queueSize value="2048"/>
-        <neverBlock value="true"/>
-        <maxFlushTime value="60000"/>
-        <appender-ref ref="SYNC_NHN_LOG_CRASH_APPENDER"/>
-    </appender>
+<!--    <appender name="LNCS-APPENDER" class="ch.qos.logback.classic.AsyncAppender">-->
+<!--        &lt;!&ndash; Logback의 AsyncAppender 옵션 &ndash;&gt;-->
+<!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+<!--            <level>INFO</level>-->
+<!--        </filter>-->
+<!--        <includeCallerData value="false"/>-->
+<!--        <queueSize value="2048"/>-->
+<!--        <neverBlock value="true"/>-->
+<!--        <maxFlushTime value="60000"/>-->
+<!--        <appender-ref ref="SYNC_NHN_LOG_CRASH_APPENDER"/>-->
+<!--    </appender>-->
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
-        <appender-ref ref="LNCS-APPENDER"/>
+<!--        <appender-ref ref="LNCS-APPENDER"/>-->
         <appender-ref ref="FILE" />
     </root>
 </configuration>
