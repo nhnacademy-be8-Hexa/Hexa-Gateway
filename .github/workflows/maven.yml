@@ -45,10 +45,15 @@ jobs:
     - name: upload file
       uses: appleboy/scp-action@v0.1.7
       with:
-        host: ${{ secrets.SSH_IP }}
-        username: ${{ secrets.SSH_ID }}
-        password: ${{ secrets.SSH_PASSWORD }}  # 보안키 대신 비밀번호를 사용합니다.
-        port: ${{ secrets.SSH_PORT }}
+#        host: ${{ secrets.SSH_IP }}
+#        username: ${{ secrets.SSH_ID }}
+#        password: ${{ secrets.SSH_PASSWORD }}  # 보안키 대신 비밀번호를 사용합니다.
+#        key: ${{ secrets.SSH_KEY }}
+#        port: ${{ secrets.SSH_PORT }}
+        host: ${{ secrets.SSH_IP_OLD }}
+        username: ${{ secrets.SSH_ID_OLD }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT_OLD }}
         source: "target/*.jar"
         target: "~/gateway"
         rm: false
@@ -56,9 +61,13 @@ jobs:
     - name: execute shell script
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.SSH_IP }}
-        username: ${{ secrets.SSH_ID }}
-        password: ${{ secrets.SSH_PASSWORD }}  # 보안키 대신 비밀번호를 사용합니다.
-        port: ${{ secrets.SSH_PORT }}
+#        host: ${{ secrets.SSH_IP }}
+#        username: ${{ secrets.SSH_ID }}
+#        password: ${{ secrets.SSH_PASSWORD }}  # 보안키 대신 비밀번호를 사용합니다.
+#        port: ${{ secrets.SSH_PORT }}
+        host: ${{ secrets.SSH_IP_OLD }}
+        username: ${{ secrets.SSH_ID_OLD }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT_OLD }}
         script_stop: true
         script: "./gatewayStartup.sh"
